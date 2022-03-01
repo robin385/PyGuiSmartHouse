@@ -108,13 +108,11 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-    #
     def change(self):
-        print()
         start=0
         global svijetlo
         vrata=False
-        value = write_read() # printing the value
+        value = write_read() #pokusaj komunikacije sa arduino
         if value:
             if "w1" in str(value):
                 vrata=True
@@ -150,10 +148,6 @@ class Ui_MainWindow(object):
                 self.Grijanjestatus.setPlainText("upaljen")
             else:
                 self.Grijanjestatus.setPlainText("Ugašen")
-
-            print(self.blu(50))
-        if(hum):
-            print(self.blu(50))
             self.vlagaTB.setHtml('<p style="color:rgb'+str(self.blu(1/(float(hum)/100*50)))+'";>'+str(hum)+"%</p>"  )
             self.TemperaturaTB.setHtml('<p style="color:rgb'+str(self.rgb(float(temperature)))+'";>'+str(temperature)+"°c</p>"  )
     #računanje plave boje da vise vlage bude vise plavo i manje manje plavo
