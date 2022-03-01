@@ -116,7 +116,7 @@ class Ui_MainWindow(object):
         vrata=False
         value = write_read() # printing the value
         if value:
-            if(chr(value[1])=='w'and chr(value[2])=='1'):
+            if "w1" in str(value):
                 vrata=True
                 start=time.time()
             elif(start-time.time()>5):#radi 5 sekundi otvorena vrata nakon što nađe jednom promjenu u barometru
